@@ -5,8 +5,8 @@
     <title>Correct Rounding Calculator 🇧🇦</title>
 </head>
 <body>
-    <h1>Rounding Calculator 🇧🇦</h1>
-    <p>Enter amount (e.g., 10.22):</p>
+    <h1>Rounding Calculator - BiH</h1>
+    <p>Enter decimal amount (e.g., 10.22):</p>
     <input type="number" id="amount" step="0.01">
     <button onclick="roundAmount()">Round</button>
     <h2 id="result"></h2>
@@ -48,5 +48,43 @@
             document.getElementById('result').innerText = `Rounded Amount: ${finalAmount} KM`;
         }
     </script>
+    <p><strong>Look at the decimal part</strong> (only the two digits after the dot)</p>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Decimal part</th>
+                <th>What to do</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>00–02</td>
+                <td>Round <strong>down</strong> to ".00"</td>
+                <td>10.01 → <strong>10.00</strong></td>
+            </tr>
+            <tr>
+                <td>03–07</td>
+                <td>Round <strong>up</strong> to ".05"</td>
+                <td>10.04 → <strong>10.05</strong></td>
+            </tr>
+            <tr>
+                <td>08–09</td>
+                <td>Round <strong>up</strong> to next ".10"</td>
+                <td>10.09 → <strong>10.10</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2> examples:</h2>
+    <ul>
+        <li>12.01 → <strong>12.00</strong></li>
+        <li>8.04 → <strong>8.05</strong></li>
+        <li>5.08 → <strong>5.10</strong></li>
+        <li>23.07 → <strong>23.05</strong></li>
+        <li>7.09 → <strong>7.10</strong></li>
+    </ul>
+
 </body>
 </html>
