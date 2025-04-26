@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correct Rounding Calculator 🇧🇦</title>
+</head>
+<body>
+    <h1>Rounding Calculator 🇧🇦</h1>
+    <p>Enter amount (e.g., 10.22):</p>
+    <input type="number" id="amount" step="0.01">
+    <button onclick="roundAmount()">Round</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function roundAmount() {
+            let amount = parseFloat(document.getElementById('amount').value);
+            if (isNaN(amount)) {
+                document.getElementById('result').innerText = "Please enter a valid number.";
+                return;
+            }
+            
+            let fenings = Math.round((amount - Math.floor(amount)) * 100);
+            let base = Math.floor(amount);
+
+            if (fenings <= 2) {
+                fenings = 0;
+            } else if (fenings >= 3 && fenings <= 7) {
+                fenings = 5;
+            } else if (fenings >= 8 && fenings <= 9) {
+                base += 1;
+                fenings = 0;
+            } else {
+                let remainder = fenings % 10;
+                if (remainder <= 2) {
+                    fenings = fenings - remainder;
+                } else if (remainder >= 3 && remainder <= 7) {
+                    fenings = fenings - remainder + 5;
+                } else {
+                    fenings = fenings - remainder + 10;
+                }
+                if (fenings === 100) {
+                    base += 1;
+                    fenings = 0;
+                }
+            }
+
+            let finalAmount = (base + fenings / 100).toFixed(2);
+            document.getElementById('result').innerText = `Rounded Amount: ${finalAmount} KM`;
+        }
+    </script>
+</body>
+</html>
