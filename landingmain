@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Rounding Calculator - BiH</h1>
-    <p>Enter decimal amount (e.g., 10.22):</p>
+    <p><strong>Enter decimal amount (e.g., 10.22):<strong/></p>
     <input type="number" id="amount" step="0.01">
     <button onclick="roundAmount()">Round</button>
     <h2 id="result"></h2>
